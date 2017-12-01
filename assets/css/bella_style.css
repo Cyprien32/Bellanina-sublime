@@ -1,0 +1,88 @@
+.validation-form{
+	background: #fff;
+    margin-bottom: 1em;
+    padding: 1em;
+     border: 1px solid #ebeff6;
+    border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.validation-system {
+    margin: 2em 0;
+}
+
+.validation-form h2 {
+    color: #1abc9c;
+    font-size: 1.8em;
+    border-bottom: 1px solid rgb(241, 233, 233);
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+}
+
+/*----*/
+label.control-label {
+    color: #000;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.form-group1 input[type="text"],.form-group1 textarea,
+.form-group1 input[type="password"],.form-group1 input[type="date"]{
+	border: 1px solid #E9E9E9;
+    font-size: 0.9em;
+    width: 100%;
+    outline: none;
+    padding: 0.5em 1em;
+    color: #999;
+    margin-top: 0.5em;
+}
+
+.form-group1 textarea{
+	min-height: 100px;
+}
+
+.form-group2 select{
+	width: 100%;
+	border: 1px solid #E9E9E9;
+    font-size: 0.9em;
+    width: 100%;
+    outline: none;
+    padding: 0.5em 1em;
+    color: #999;
+    margin-top: 0.5em;
+}
+
+.vali-form {
+    padding: 1.5em 0;
+}
+
+.group-mail {
+    padding-bottom: 1.5em;
+}
+
+.vali-form1{
+	padding: 0 0 1.5em;
+}
+
+
+.button_gerer{
+    cursor: pointer;
+    float: center;
+    text-align:center;
+}
+
+form input[type='submit']{
+    float: center;
+    text-align: center;
+}
+
+
+
+
+
+				  
