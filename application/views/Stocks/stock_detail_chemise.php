@@ -107,27 +107,27 @@
 		            <div class="vali-form">
 		            	<div class="col-md-2 form-group1">
 			              <label class="control-label">Taille S</label>
-			              <input value="00" class="form-control" min="0" name="qteTS" type="number">
+			              <input  class="form-control" min="0" name="S" type="number" required="">
 			            </div>
 			            <div class="col-md-2 form-group1">
 			              <label class="control-label">Taille M</label>
-			              <input value='00' class="form-control" min="0" name="qteTM" type="number">
+			              <input class="form-control" min="0" name="M" type="number" required="">
 			            </div>
 			            <div class="col-md-2 form-group1">
 			              <label class="control-label">Taille L</label>
-			              <input value="00" class="form-control" min="0" name="qteTL" type="number">
+			              <input value="00" class="form-control" min="0" name="L" type="number" required="">
 			            </div>
 			            <div class="col-md-2 form-group1">
 			              <label class="control-label">Taille XL</label>
-			              <input value="00" class="form-control" min="0" name="qteTXL" type="number">
+			              <input value="00" class="form-control" min="0" name="XL" type="number" required="">
 			            </div>
 			            <div class="col-md-2 form-group1">
 			              <label class="control-label">Taille XXL</label>
-			              <input value="00" class="form-control" min="0" name="qteTXXL" type="number">
+			              <input value="00" class="form-control" min="0" name="XXL" type="number" required="">
 			            </div>
 			            <div class="col-md-2 form-group1">
 			              <label class="control-label">Taille 3XL</label>
-			              <input value="00" class="form-control" min="0" name="qteT3XL" type="number">
+			              <input value="00" class="form-control" min="0" name="3XL" type="number" required="">
 			            </div>
 			            <div class="clearfix"> </div>
 			        </div>

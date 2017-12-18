@@ -7,9 +7,12 @@ class Stock extends CI_Controller {
 	{
 		$_SESSION['success']='';
 		$data['AllCatStock']=$this->Cat_stock->findAllCat_stock();
-
+		$data['valTotal']=array();
+			for ($i=0; $i<$data['AllCatStock']['total']; $i++) { 
+				$data['valTotal'][$i]=$this->Tablegenerated->countAllArticle($data['AllCatStock'][$i]['libelle']);
+			}
 		$this->load->view('Welcome/index',$data);
-		$this->load->view('Welcome/asside');
+		$this->load->view('template_al/navigation');
 		$this->load->view('Stocks/stock_home');
 		$this->load->view('Welcome/footer');
 	}
@@ -23,9 +26,8 @@ class Stock extends CI_Controller {
 			$data['StockName']=$this->Stock->findAllStockName($_POST['id_cat']);
 			$data['alldonneeArticle']=$this->Tablegenerated->findAllDonneeTable($data['title']);
 			$this->load->view('Welcome/index',$data);
-			$this->load->view('Welcome/asside');
+			$this->load->view('template_al/navigation');
 			if ($data['title']=='chaussure') {
-				if ($data['title']=='chaussure') {
 				$this->load->view('Stocks/stock_detail_chaussure');
 			}elseif ($data['title']=='sacs') {
 				$this->load->view('Stocks/stock_detail_sacs');
@@ -34,17 +36,9 @@ class Stock extends CI_Controller {
 			}elseif ($data['title']=='costume') {
 				$this->load->view('Stocks/stock_detail_costume');
 			}else{
-				$this->load->view('Stocks/stock_detail');
+				$this->load->view('Welcome/index');
 			}
-			}elseif ($data['title']=='sacs') {
-				$this->load->view('Stocks/stock_detail_sacs');
-			}elseif ($data['title']=='chemise') {
-				$this->load->view('Stocks/stock_detail_chemise');
-			}elseif ($data['title']=='costume') {
-				$this->load->view('Stocks/stock_detail_costume');
-			}else{
-				$this->load->view('Stocks/stock_detail');
-			}
+			
 			$this->load->view('Welcome/footer');
 		}
 	}
@@ -128,7 +122,7 @@ class Stock extends CI_Controller {
 			$data['StockName']=$this->Stock->findAllStockName($_POST['cat_stock_id']);
 			$data['alldonneeArticle']=$this->Tablegenerated->findAllDonneeTable($data['title']);
 			$this->load->view('Welcome/index',$data);
-			$this->load->view('Welcome/asside');
+			$this->load->view('template_al/navigation');
 			if ($data['title']=='chaussure') {
 				$this->load->view('Stocks/stock_detail_chaussure');
 			}elseif ($data['title']=='sacs') {
@@ -141,6 +135,193 @@ class Stock extends CI_Controller {
 				$this->load->view('Stocks/stock_detail');
 			}
 			$this->load->view('Welcome/footer');
+		}
+	}
+
+
+	public function pointureTaille(){
+		if ($_POST['nom_table']=='chaussure') {
+			if ($_POST['type']=='homme') {
+				$data1['donnee_pointure']=array();
+				$data1['donnee_pointure'][0]['nom']='qtept35';
+				$data1['donnee_pointure'][0]['val']=$_POST['qtept35'];
+				$data1['donnee_pointure'][1]['nom']='qtept36';
+				$data1['donnee_pointure'][1]['val']=$_POST['qtept36'];
+				$data1['donnee_pointure'][2]['nom']='qtept37';
+				$data1['donnee_pointure'][2]['val']=$_POST['qtept37'];
+				$data1['donnee_pointure'][3]['nom']='qtept38';
+				$data1['donnee_pointure'][3]['val']=$_POST['qtept38'];
+				$data1['donnee_pointure'][4]['nom']='qtept39';
+				$data1['donnee_pointure'][4]['val']=$_POST['qtept39'];
+				$data1['donnee_pointure'][5]['nom']='qtept40';
+				$data1['donnee_pointure'][5]['val']=$_POST['qtept40'];
+				$data1['donnee_pointure'][6]['nom']='qtept41';
+				$data1['donnee_pointure'][6]['val']=$_POST['qtept41'];
+				$data1['donnee_pointure'][7]['nom']='qtept42';
+				$data1['donnee_pointure'][7]['val']=$_POST['qtept42'];
+				$data1['donnee_pointure'][8]['nom']='qtept43';
+				$data1['donnee_pointure'][8]['val']=$_POST['qtept43'];
+				$data1['donnee_pointure'][9]['nom']='qtept44';
+				$data1['donnee_pointure'][9]['val']=$_POST['qtept44'];
+				$data1['donnee_pointure'][10]['nom']='qtept45';
+				$data1['donnee_pointure'][10]['val']=$_POST['qtept45'];
+				$data1['donnee_pointure'][11]['nom']='qtept46';
+				$data1['donnee_pointure'][11]['val']=$_POST['qtept46'];
+				$data1['donnee_pointure']['total']=12;
+				$data1['donnee_pointure']['quantite']= $_POST['qtept35']+ $_POST['qtept36']+ $_POST['qtept37']+ $_POST['qtept38']+ $_POST['qtept39']+ $_POST['qtept40']+ $_POST['qtept41']+ $_POST['qtept42']+$_POST['qtept43']+$_POST['qtept44']+$_POST['qtept45']+$_POST['qtept46'];
+			
+			}elseif ($_POST['type']=='femme') {
+				$data1['donnee_pointure']=array();
+				$data1['donnee_pointure'][0]['nom']='qtept35';
+				$data1['donnee_pointure'][0]['val']=$_POST['qtept35'];
+				$data1['donnee_pointure'][1]['nom']='qtept36';
+				$data1['donnee_pointure'][1]['val']=$_POST['qtept36'];
+				$data1['donnee_pointure'][2]['nom']='qtept37';
+				$data1['donnee_pointure'][2]['val']=$_POST['qtept37'];
+				$data1['donnee_pointure'][3]['nom']='qtept38';
+				$data1['donnee_pointure'][3]['val']=$_POST['qtept38'];
+				$data1['donnee_pointure'][4]['nom']='qtept39';
+				$data1['donnee_pointure'][4]['val']=$_POST['qtept39'];
+				$data1['donnee_pointure'][5]['nom']='qtept40';
+				$data1['donnee_pointure'][5]['val']=$_POST['qtept40'];
+				$data1['donnee_pointure'][6]['nom']='qtept41';
+				$data1['donnee_pointure'][6]['val']=$_POST['qtept41'];
+				$data1['donnee_pointure'][7]['nom']='qtept42';
+				$data1['donnee_pointure'][7]['val']=$_POST['qtept42'];
+				$data1['donnee_pointure'][8]['nom']='qtept43';
+				$data1['donnee_pointure'][8]['val']=$_POST['qtept43'];
+				$data1['donnee_pointure'][9]['nom']='qtept44';
+				$data1['donnee_pointure'][9]['val']=$_POST['qtept44'];
+				$data1['donnee_pointure']['total']=10;
+				$data1['donnee_pointure']['quantite']= $_POST['qtept35']+ $_POST['qtept36']+ $_POST['qtept37']+ $_POST['qtept38']+ $_POST['qtept39']+ $_POST['qtept40']+ $_POST['qtept41']+ $_POST['qtept42']+$_POST['qtept43']+$_POST['qtept44'];
+			
+			}elseif($_POST['type']=='enfant') {
+				$data1['donnee_pointure']=array();
+				$data1['donnee_pointure'][0]['nom']="qtept18";
+				$data1['donnee_pointure'][0]['val']=$_POST['qtept18'];
+				$data1['donnee_pointure'][1]['nom']="qtept19";
+				$data1['donnee_pointure'][1]['val']=$_POST['qtept19'];
+				$data1['donnee_pointure'][2]['nom']="qtept20";
+				$data1['donnee_pointure'][2]['val']=$_POST['qtept20'];
+				$data1['donnee_pointure'][3]['nom']="qtept21";
+				$data1['donnee_pointure'][3]['val']=$_POST['qtept21'];
+				$data1['donnee_pointure'][4]['nom']="qtept22";
+				$data1['donnee_pointure'][4]['val']=$_POST['qtept22'];
+				$data1['donnee_pointure'][5]['nom']="qtept23";
+				$data1['donnee_pointure'][5]['val']=$_POST['qtept23'];
+				$data1['donnee_pointure'][6]['nom']="qtept24";
+				$data1['donnee_pointure'][6]['val']=$_POST['qtept24'];
+				$data1['donnee_pointure'][7]['nom']="qtept25";
+				$data1['donnee_pointure'][7]['val']=$_POST['qtept25'];
+				$data1['donnee_pointure'][8]['nom']="qtept26";
+				$data1['donnee_pointure'][8]['val']=$_POST['qtept26'];
+				$data1['donnee_pointure'][9]['nom']="qtept27";
+				$data1['donnee_pointure'][9]['val']=$_POST['qtept27'];
+				$data1['donnee_pointure'][10]['nom']="qtept28";
+				$data1['donnee_pointure'][10]['val']=$_POST['qtept28'];
+				$data1['donnee_pointure'][11]['nom']="qtept29";
+				$data1['donnee_pointure'][11]['val']=$_POST['qtept29'];
+				$data1['donnee_pointure'][12]['nom']="qtept30";
+				$data1['donnee_pointure'][12]['val']=$_POST['qtept30'];
+				$data1['donnee_pointure'][13]['nom']="qtept31";
+				$data1['donnee_pointure'][13]['val']=$_POST['qtept31'];
+				$data1['donnee_pointure'][14]['nom']="qtept32";
+				$data1['donnee_pointure'][14]['val']=$_POST['qtept32'];
+				$data1['donnee_pointure'][15]['nom']="qtept33";
+				$data1['donnee_pointure'][15]['val']=$_POST['qtept33'];
+				$data1['donnee_pointure'][16]['nom']="qtept34";
+				$data1['donnee_pointure'][16]['val']=$_POST['qtept34'];
+				$data1['donnee_pointure'][17]['nom']="qtept35";
+				$data1['donnee_pointure'][17]['val']=$_POST['qtept35'];
+				$data1['donnee_pointure'][18]['nom']="qtept36";
+				$data1['donnee_pointure'][18]['val']=$_POST['qtept36'];
+				$data1['donnee_pointure']['total']=19;
+				$data1['donnee_pointure']['quantite']= $_POST['qtept18']+ $_POST['qtept19']+ $_POST['qtept20']+ $_POST['qtept21']+ $_POST['qtept22']+ $_POST['qtept23']+ $_POST['qtept24']+ $_POST['qtept25']+$_POST['qtept26']+$_POST['qtept27']+$_POST['qtept28']+$_POST['qtept29']+$_POST['qtept30']+$_POST['qtept31']+$_POST['qtept32']+$_POST['qtept33']+$_POST['qtept34']+$_POST['qtept35']+$_POST['qtept36'];
+			
+			}
+
+			$data['quantite']=$data1['donnee_pointure']['quantite'];
+			$data['pointure']=json_encodeur($data1);
+			$data['donnees']=array();
+			$data['donnees']['quantite']=$data['quantite'];
+			$data['donnees']['pointure']=$data['pointure'];
+			return $data['donnees'];
+		
+		}elseif ($_POST['nom_table']=='chemise') {
+			$data1['donnee_taille']=array();
+			$data1['donnee_taille'][0]['nom']="S";
+			$data1['donnee_taille'][0]['val']=$_POST['S'];
+			$data1['donnee_taille'][1]['nom']="M";
+			$data1['donnee_taille'][1]['val']=$_POST['M'];
+			$data1['donnee_taille'][2]['nom']="L";
+			$data1['donnee_taille'][2]['val']=$_POST['L'];
+			$data1['donnee_taille'][3]['nom']="XL";
+			$data1['donnee_taille'][3]['val']=$_POST['XL'];
+			$data1['donnee_taille'][4]['nom']="XXL";
+			$data1['donnee_taille'][4]['val']=$_POST['XXL'];
+			$data1['donnee_taille'][5]['nom']="3XL";
+			$data1['donnee_taille'][5]['val']=$_POST['3XL'];
+			$data1['donnee_taille']['total']=6;
+			$data1['donnee_taille']['quantite']=$_POST['S']+$_POST['M']+$_POST['L']+$_POST['XL']+$_POST['XXL']+$_POST['3XL'];
+			$data['quantite']=$data1['donnee_taille']['quantite'];
+			$data['taille']=json_encodeur($data1);
+			$data['donnees']=array();
+			$data['donnees']['quantite']=$data['quantite'];
+			$data['donnees']['taille']=$data['taille'];
+			return $data['donnees'];
+
+		}elseif ($_POST['nom_table']=='costume') {
+			$data1['donnee_taille']=array();
+			$data1['donnee_taille'][0]['nom']="qteT44";
+			$data1['donnee_taille'][0]['val']=$_POST['qteT44'];
+			$data1['donnee_taille'][1]['nom']="qteT45";
+			$data1['donnee_taille'][1]['val']=$_POST['qteT45'];
+			$data1['donnee_taille'][2]['nom']="qteT46";
+			$data1['donnee_taille'][2]['val']=$_POST['qteT46'];
+			$data1['donnee_taille'][3]['nom']="qteT47";
+			$data1['donnee_taille'][3]['val']=$_POST['qteT47'];
+			$data1['donnee_taille'][4]['nom']="qteT48";
+			$data1['donnee_taille'][4]['val']=$_POST['qteT48'];
+			$data1['donnee_taille'][5]['nom']="qteT49";
+			$data1['donnee_taille'][5]['val']=$_POST['qteT49'];
+			$data1['donnee_taille'][6]['nom']="qteT50";
+			$data1['donnee_taille'][6]['val']=$_POST['qteT50'];
+			$data1['donnee_taille'][7]['nom']="qteT51";
+			$data1['donnee_taille'][7]['val']=$_POST['qteT51'];
+			$data1['donnee_taille'][8]['nom']="qteT52";
+			$data1['donnee_taille'][8]['val']=$_POST['qteT52'];
+			$data1['donnee_taille'][9]['nom']="qteT53";
+			$data1['donnee_taille'][9]['val']=$_POST['qteT53'];
+			$data1['donnee_taille'][10]['nom']="qteT54";
+			$data1['donnee_taille'][10]['val']=$_POST['qteT54'];
+			$data1['donnee_taille'][11]['nom']="qteT55";
+			$data1['donnee_taille'][11]['val']=$_POST['qteT55'];
+			$data1['donnee_taille'][12]['nom']="qteT56";
+			$data1['donnee_taille'][12]['val']=$_POST['qteT56'];
+			$data1['donnee_taille'][13]['nom']="qteT57";
+			$data1['donnee_taille'][13]['val']=$_POST['qteT57'];
+			$data1['donnee_taille'][14]['nom']="qteT58";
+			$data1['donnee_taille'][14]['val']=$_POST['qteT58'];
+			$data1['donnee_taille'][15]['nom']="qteT59";
+			$data1['donnee_taille'][15]['val']=$_POST['qteT59'];
+			$data1['donnee_taille'][16]['nom']="qteT60";
+			$data1['donnee_taille'][16]['val']=$_POST['qteT60'];
+			$data1['donnee_taille']['total']=17;
+			$data1['donnee_taille']['quantite']=$_POST['qteT44']+$_POST['qteT45']+$_POST['qteT46']+$_POST['qteT47']+$_POST['qteT48']+$_POST['qteT49']+$_POST['qteT50']+$_POST['qteT51']+$_POST['qteT52']+$_POST['qteT53']+$_POST['qteT54']+$_POST['qteT55']+$_POST['qteT56']+$_POST['qteT57']+$_POST['qteT58']+$_POST['qteT59']+$_POST['qteT60'];
+			$data['quantite']=$data1['donnee_taille']['quantite'];
+			$data['taille']=json_encodeur($data1);
+			$data['donnees']=array();
+			$data['donnees']['quantite']=$data['quantite'];
+			$data['donnees']['taille']=$data['taille'];
+			return $data['donnees'];
+
+		}elseif ($_POST['nom_table']=='sacs') {
+			$data['quantite']=$_POST['quantite'];
+			$data['donnees']=array();
+			$data['donnees']['quantite']=$data['quantite'];
+			return $data['donnees'];
+		}else{
+			
 		}
 	}
 
@@ -177,105 +358,16 @@ class Stock extends CI_Controller {
 				$data['stock_id']=$_POST['id_stock'];
 				$data['marque']=$this->Stock->findNom_article($_POST['id_stock']);
 				$data['code']=$_POST['code'];
-				if ($_POST['nom_table']=='chaussure') {
-					if ($_POST['type']=='homme') {
-						$data1['donnee_pointure']=array();
-						$data1['donnee_pointure']['qtept35']=$_POST['qtept35'];
-						$data1['donnee_pointure']['qtept36']=$_POST['qtept36'];
-						$data1['donnee_pointure']['qtept37']=$_POST['qtept37'];
-						$data1['donnee_pointure']['qtept38']=$_POST['qtept38'];
-						$data1['donnee_pointure']['qtept39']=$_POST['qtept39'];
-						$data1['donnee_pointure']['qtept40']=$_POST['qtept40'];
-						$data1['donnee_pointure']['qtept41']=$_POST['qtept41'];
-						$data1['donnee_pointure']['qtept42']=$_POST['qtept42'];
-						$data1['donnee_pointure']['qtept43']=$_POST['qtept43'];
-						$data1['donnee_pointure']['qtept44']=$_POST['qtept44'];
-						$data1['donnee_pointure']['qtept45']=$_POST['qtept45'];
-						$data1['donnee_pointure']['qtept46']=$_POST['qtept46'];
-						$data1['donnee_pointure']['total']= $_POST['qtept35']+ $_POST['qtept36']+ $_POST['qtept37']+ $_POST['qtept38']+ $_POST['qtept39']+ $_POST['qtept40']+ $_POST['qtept41']+ $_POST['qtept42']+$_POST['qtept43']+$_POST['qtept44']+$_POST['qtept45']+$_POST['qtept46'];
-					
-					}elseif ($_POST['type']=='femme') {
-						$data1['donnee_pointure']=array();
-						$data1['donnee_pointure']['qtept35']=$_POST['qtept35'];
-						$data1['donnee_pointure']['qtept36']=$_POST['qtept36'];
-						$data1['donnee_pointure']['qtept37']=$_POST['qtept37'];
-						$data1['donnee_pointure']['qtept38']=$_POST['qtept38'];
-						$data1['donnee_pointure']['qtept39']=$_POST['qtept39'];
-						$data1['donnee_pointure']['qtept40']=$_POST['qtept40'];
-						$data1['donnee_pointure']['qtept41']=$_POST['qtept41'];
-						$data1['donnee_pointure']['qtept42']=$_POST['qtept42'];
-						$data1['donnee_pointure']['qtept43']=$_POST['qtept43'];
-						$data1['donnee_pointure']['qtept44']=$_POST['qtept44'];
-						$data1['donnee_pointure']['total']= $_POST['qtept35']+ $_POST['qtept36']+ $_POST['qtept37']+ $_POST['qtept38']+ $_POST['qtept39']+ $_POST['qtept40']+ $_POST['qtept41']+ $_POST['qtept42']+$_POST['qtept43']+$_POST['qtept44'];
-					
-					}elseif($_POST['type']=='enfant') {
-						$data1['donnee_pointure']=array();
-						$data1['donnee_pointure']['qtept18']=$_POST['qtept18'];
-						$data1['donnee_pointure']['qtept19']=$_POST['qtept19'];
-						$data1['donnee_pointure']['qtept20']=$_POST['qtept20'];
-						$data1['donnee_pointure']['qtept21']=$_POST['qtept21'];
-						$data1['donnee_pointure']['qtept22']=$_POST['qtept22'];
-						$data1['donnee_pointure']['qtept23']=$_POST['qtept23'];
-						$data1['donnee_pointure']['qtept24']=$_POST['qtept24'];
-						$data1['donnee_pointure']['qtept25']=$_POST['qtept25'];
-						$data1['donnee_pointure']['qtept26']=$_POST['qtept26'];
-						$data1['donnee_pointure']['qtept27']=$_POST['qtept27'];
-						$data1['donnee_pointure']['qtept28']=$_POST['qtept28'];
-						$data1['donnee_pointure']['qtept29']=$_POST['qtept29'];
-						$data1['donnee_pointure']['qtept30']=$_POST['qtept30'];
-						$data1['donnee_pointure']['qtept31']=$_POST['qtept31'];
-						$data1['donnee_pointure']['qtept32']=$_POST['qtept32'];
-						$data1['donnee_pointure']['qtept33']=$_POST['qtept33'];
-						$data1['donnee_pointure']['qtept34']=$_POST['qtept34'];
-						$data1['donnee_pointure']['qtept35']=$_POST['qtept35'];
-						$data1['donnee_pointure']['qtept36']=$_POST['qtept36'];
-						$data1['donnee_pointure']['total']= $_POST['qtept18']+ $_POST['qtept19']+ $_POST['qtept20']+ $_POST['qtept21']+ $_POST['qtept22']+ $_POST['qtept23']+ $_POST['qtept24']+ $_POST['qtept25']+$_POST['qtept26']+$_POST['qtept27']+$_POST['qtept28']+$_POST['qtept29']+$_POST['qtept30']+$_POST['qtept31']+$_POST['qtept32']+$_POST['qtept33']+$_POST['qtept34']+$_POST['qtept35']+$_POST['qtept36'];
-					
-					}
-
-					$data['quantite']=$data1['donnee_pointure']['total'];
-					$data['pointure']=json_encodeur($data1);
+				$data['donnees']=array();
+				$data['donnees']=$this->pointureTaille();
 				
-				}elseif ($_POST['nom_table']=='chemise') {
-					$data1['donnee_taille']=array();
-					$data1['donnee_taille']['qteTS']=$_POST['qteTS'];
-					$data1['donnee_taille']['qteTM']=$_POST['qteTM'];
-					$data1['donnee_taille']['qteTL']=$_POST['qteTL'];
-					$data1['donnee_taille']['qteTXL']=$_POST['qteTXL'];
-					$data1['donnee_taille']['qteTXXL']=$_POST['qteTXXL'];
-					$data1['donnee_taille']['qteT3XL']=$_POST['qteT3XL'];
-					$data1['donnee_taille']['total']=$_POST['qteTS']+$_POST['qteTM']+$_POST['qteTL']+$_POST['qteTXL']+$_POST['qteTXXL']+$_POST['qteT3XL'];
-					$data['quantite']=$data1['donnee_taille']['total'];
-					$data['taille']=json_encodeur($data1);
-
-				}elseif ($_POST['nom_table']=='costume') {
-					$data1['donnee_taille']=array();
-					$data1['donnee_taille']['qteT44']=$_POST['qteT44'];
-					$data1['donnee_taille']['qteT45']=$_POST['qteT45'];
-					$data1['donnee_taille']['qteT46']=$_POST['qteT46'];
-					$data1['donnee_taille']['qteT47']=$_POST['qteT47'];
-					$data1['donnee_taille']['qteT48']=$_POST['qteT48'];
-					$data1['donnee_taille']['qteT49']=$_POST['qteT49'];
-					$data1['donnee_taille']['qteT50']=$_POST['qteT50'];
-					$data1['donnee_taille']['qteT51']=$_POST['qteT51'];
-					$data1['donnee_taille']['qteT52']=$_POST['qteT52'];
-					$data1['donnee_taille']['qteT53']=$_POST['qteT53'];
-					$data1['donnee_taille']['qteT54']=$_POST['qteT54'];
-					$data1['donnee_taille']['qteT55']=$_POST['qteT55'];
-					$data1['donnee_taille']['qteT56']=$_POST['qteT56'];
-					$data1['donnee_taille']['qteT57']=$_POST['qteT57'];
-					$data1['donnee_taille']['qteT58']=$_POST['qteT58'];
-					$data1['donnee_taille']['qteT59']=$_POST['qteT59'];
-					$data1['donnee_taille']['qteT60']=$_POST['qteT60'];
-					$data1['donnee_taille']['total']=$_POST['qteT44']+$_POST['qteT45']+$_POST['qteT46']+$_POST['qteT47']+$_POST['qteT48']+$_POST['qteT49']+$_POST['qteT50']+$_POST['qteT51']+$_POST['qteT52']+$_POST['qteT53']+$_POST['qteT54']+$_POST['qteT55']+$_POST['qteT56']+$_POST['qteT57']+$_POST['qteT58']+$_POST['qteT59']+$_POST['qteT60'];
-					$data['quantite']=$data1['donnee_taille']['total'];
-					$data['taille']=json_encodeur($data1);
-				}elseif ($_POST['nom_table']=='sacs') {
-					$data['quantite']=$_POST['quantite'];
-				}else{
-					
+				if($_POST['nom_table']=='chaussure'){
+					$data['pointure']=$data['donnees']['pointure'];
 				}
-				
+				if ($_POST['nom_table']=='chemise' || $_POST['nom_table']=='costume') {
+					$data['taille']=$data['donnees']['taille'];
+				}
+				$data['quantite']=$data['donnees']['quantite'];
 				$data['dateCreation']=date('Y-m-d H:i:s');
 
 				if ($this->Tablegenerated->testTable($_POST['nom_table'])==TRUE) {
@@ -287,7 +379,7 @@ class Stock extends CI_Controller {
 					$data['StockName']=$this->Stock->findAllStockName($data['id_cat']);
 					$data['alldonneeArticle']=$this->Tablegenerated->findAllDonneeTable($_POST['nom_table']);
 					$this->load->view('Welcome/index',$data);
-					$this->load->view('Welcome/asside');
+					$this->load->view('template_al/navigation');
 					if ($data['title']=='chaussure') {
 						$this->load->view('Stocks/stock_detail_chaussure');
 					}elseif ($data['title']=='sacs') {
@@ -311,7 +403,7 @@ class Stock extends CI_Controller {
 				$data['StockName']=$this->Stock->findAllStockName($data['id_cat']);
 				$data['alldonneeArticle']=$this->Tablegenerated->findAllDonneeTable($_POST['nom_table']);
 				$this->load->view('Welcome/index',$data);
-				$this->load->view('Welcome/asside');
+				$this->load->view('template_al/navigation');
 				if ($data['title']=='chaussure') {
 					$this->load->view('Stocks/stock_detail_chaussure');
 				}elseif ($data['title']=='sacs') {
@@ -361,7 +453,7 @@ class Stock extends CI_Controller {
 			}
 
 			$this->load->view('Welcome/index',$data);
-			$this->load->view('Welcome/asside');
+			$this->load->view('template_al/navigation');
 			if ($data['nom_table']=='chaussure') {
 				if($_POST['type']=='homme'){
 					$this->load->view('Stocks/stock_modif');
@@ -397,105 +489,17 @@ class Stock extends CI_Controller {
 			$data['prix_max']=$_POST['prix_max'];
 			$data['stock_id']=$_POST['stock_id'];
 			$data['code']=$_POST['code'];
-			if ($_POST['nom_table']=='chaussure') {
-				if ($_POST['type']=='homme') {
-					$data1['donnee_pointure']=array();
-					$data1['donnee_pointure']['qtept35']=$_POST['qtept35'];
-					$data1['donnee_pointure']['qtept36']=$_POST['qtept36'];
-					$data1['donnee_pointure']['qtept37']=$_POST['qtept37'];
-					$data1['donnee_pointure']['qtept38']=$_POST['qtept38'];
-					$data1['donnee_pointure']['qtept39']=$_POST['qtept39'];
-					$data1['donnee_pointure']['qtept40']=$_POST['qtept40'];
-					$data1['donnee_pointure']['qtept41']=$_POST['qtept41'];
-					$data1['donnee_pointure']['qtept42']=$_POST['qtept42'];
-					$data1['donnee_pointure']['qtept43']=$_POST['qtept43'];
-					$data1['donnee_pointure']['qtept44']=$_POST['qtept44'];
-					$data1['donnee_pointure']['qtept45']=$_POST['qtept45'];
-					$data1['donnee_pointure']['qtept46']=$_POST['qtept46'];
-					$data1['donnee_pointure']['total']= $_POST['qtept35']+ $_POST['qtept36']+ $_POST['qtept37']+ $_POST['qtept38']+ $_POST['qtept39']+ $_POST['qtept40']+ $_POST['qtept41']+ $_POST['qtept42']+$_POST['qtept43']+$_POST['qtept44']+$_POST['qtept45']+$_POST['qtept46'];
-				
-				}elseif ($_POST['type']=='femme') {
-					$data1['donnee_pointure']=array();
-					$data1['donnee_pointure']['qtept35']=$_POST['qtept35'];
-					$data1['donnee_pointure']['qtept36']=$_POST['qtept36'];
-					$data1['donnee_pointure']['qtept37']=$_POST['qtept37'];
-					$data1['donnee_pointure']['qtept38']=$_POST['qtept38'];
-					$data1['donnee_pointure']['qtept39']=$_POST['qtept39'];
-					$data1['donnee_pointure']['qtept40']=$_POST['qtept40'];
-					$data1['donnee_pointure']['qtept41']=$_POST['qtept41'];
-					$data1['donnee_pointure']['qtept42']=$_POST['qtept42'];
-					$data1['donnee_pointure']['qtept43']=$_POST['qtept43'];
-					$data1['donnee_pointure']['qtept44']=$_POST['qtept44'];
-					$data1['donnee_pointure']['total']= $_POST['qtept35']+ $_POST['qtept36']+ $_POST['qtept37']+ $_POST['qtept38']+ $_POST['qtept39']+ $_POST['qtept40']+ $_POST['qtept41']+ $_POST['qtept42']+$_POST['qtept43']+$_POST['qtept44'];
-				
-				}elseif($_POST['type']=='enfant') {
-					$data1['donnee_pointure']=array();
-					$data1['donnee_pointure']['qtept18']=$_POST['qtept18'];
-					$data1['donnee_pointure']['qtept19']=$_POST['qtept19'];
-					$data1['donnee_pointure']['qtept20']=$_POST['qtept20'];
-					$data1['donnee_pointure']['qtept21']=$_POST['qtept21'];
-					$data1['donnee_pointure']['qtept22']=$_POST['qtept22'];
-					$data1['donnee_pointure']['qtept23']=$_POST['qtept23'];
-					$data1['donnee_pointure']['qtept24']=$_POST['qtept24'];
-					$data1['donnee_pointure']['qtept25']=$_POST['qtept25'];
-					$data1['donnee_pointure']['qtept26']=$_POST['qtept26'];
-					$data1['donnee_pointure']['qtept27']=$_POST['qtept27'];
-					$data1['donnee_pointure']['qtept28']=$_POST['qtept28'];
-					$data1['donnee_pointure']['qtept29']=$_POST['qtept29'];
-					$data1['donnee_pointure']['qtept30']=$_POST['qtept30'];
-					$data1['donnee_pointure']['qtept31']=$_POST['qtept31'];
-					$data1['donnee_pointure']['qtept32']=$_POST['qtept32'];
-					$data1['donnee_pointure']['qtept33']=$_POST['qtept33'];
-					$data1['donnee_pointure']['qtept34']=$_POST['qtept34'];
-					$data1['donnee_pointure']['qtept35']=$_POST['qtept35'];
-					$data1['donnee_pointure']['qtept36']=$_POST['qtept36'];
-					$data1['donnee_pointure']['total']= $_POST['qtept18']+ $_POST['qtept19']+ $_POST['qtept20']+ $_POST['qtept21']+ $_POST['qtept22']+ $_POST['qtept23']+ $_POST['qtept24']+ $_POST['qtept25']+$_POST['qtept26']+$_POST['qtept27']+$_POST['qtept28']+$_POST['qtept29']+$_POST['qtept30']+$_POST['qtept31']+$_POST['qtept32']+$_POST['qtept33']+$_POST['qtept34']+$_POST['qtept35']+$_POST['qtept36'];
-				
-				}
-				
-				$data['quantite']=$data1['donnee_pointure']['total'];
-				$data['pointure']=json_encodeur($data1);
 			
-			}elseif ($_POST['nom_table']=='chemise') {
-				$data1['donnee_taille']=array();
-				$data1['donnee_taille']['qteTS']=$_POST['qteTS'];
-				$data1['donnee_taille']['qteTM']=$_POST['qteTM'];
-				$data1['donnee_taille']['qteTL']=$_POST['qteTL'];
-				$data1['donnee_taille']['qteTXL']=$_POST['qteTXL'];
-				$data1['donnee_taille']['qteTXXL']=$_POST['qteTXXL'];
-				$data1['donnee_taille']['qteT3XL']=$_POST['qteT3XL'];
-				$data1['donnee_taille']['total']=$_POST['qteTS']+$_POST['qteTM']+$_POST['qteTL']+$_POST['qteTXL']+$_POST['qteTXXL']+$_POST['qteT3XL'];
-				$data['quantite']=$data1['donnee_taille']['total'];
-				$data['taille']=json_encodeur($data1);
-
-			}elseif ($_POST['nom_table']=='costume') {
-				$data1['donnee_taille']=array();
-				$data1['donnee_taille']['qteT44']=$_POST['qteT44'];
-				$data1['donnee_taille']['qteT45']=$_POST['qteT45'];
-				$data1['donnee_taille']['qteT46']=$_POST['qteT46'];
-				$data1['donnee_taille']['qteT47']=$_POST['qteT47'];
-				$data1['donnee_taille']['qteT48']=$_POST['qteT48'];
-				$data1['donnee_taille']['qteT49']=$_POST['qteT49'];
-				$data1['donnee_taille']['qteT50']=$_POST['qteT50'];
-				$data1['donnee_taille']['qteT51']=$_POST['qteT51'];
-				$data1['donnee_taille']['qteT52']=$_POST['qteT52'];
-				$data1['donnee_taille']['qteT53']=$_POST['qteT53'];
-				$data1['donnee_taille']['qteT54']=$_POST['qteT54'];
-				$data1['donnee_taille']['qteT55']=$_POST['qteT55'];
-				$data1['donnee_taille']['qteT56']=$_POST['qteT56'];
-				$data1['donnee_taille']['qteT57']=$_POST['qteT57'];
-				$data1['donnee_taille']['qteT58']=$_POST['qteT58'];
-				$data1['donnee_taille']['qteT59']=$_POST['qteT59'];
-				$data1['donnee_taille']['qteT60']=$_POST['qteT60'];
-				$data1['donnee_taille']['total']=$_POST['qteT44']+$_POST['qteT45']+$_POST['qteT46']+$_POST['qteT47']+$_POST['qteT48']+$_POST['qteT49']+$_POST['qteT50']+$_POST['qteT51']+$_POST['qteT52']+$_POST['qteT53']+$_POST['qteT54']+$_POST['qteT55']+$_POST['qteT56']+$_POST['qteT57']+$_POST['qteT58']+$_POST['qteT59']+$_POST['qteT60'];
-				$data['quantite']=$data1['donnee_taille']['total'];
-				$data['taille']=json_encodeur($data1);
-			}elseif ($_POST['nom_table']=='sacs') {
-				$data['quantite']=$_POST['quantite'];
-			}else{
-
+			$data['donnees']=$this->pointureTaille();
+			if($_POST['nom_table']=='chaussure'){
+				$data['pointure']=$data['donnees']['pointure'];
 			}
-			
+			if ($_POST['nom_table']=='chemise' || $_POST['nom_table']=='costume') {
+				$data['taille']=$data['donnees']['taille'];
+			}
+			$data['quantite']=$data['donnees']['quantite'];
+			$data['dateCreation']=date('Y-m-d H:i:s');
+
 			$data['dateModification']=date('Y-m-d H:i:s');
 			if ($this->Tablegenerated->testTable($_POST['nom_table'])==TRUE) {
 				$this->Tablegenerated->hydrate($data);
@@ -508,7 +512,7 @@ class Stock extends CI_Controller {
 				$_SESSION['success']='ok';
 				
 				$this->load->view('Welcome/index',$data);
-				$this->load->view('Welcome/asside');
+				$this->load->view('template_al/navigation');
 				if ($data['title']=='chaussure') {
 					$this->load->view('Stocks/stock_detail_chaussure');
 				}elseif ($data['title']=='sacs') {
@@ -541,7 +545,7 @@ class Stock extends CI_Controller {
 			$_SESSION['success']='ok';
 			$_SESSION['message_save']='Article supprime avec succes!!!!';
 			$this->load->view('Welcome/index',$data);
-			$this->load->view('Welcome/asside');
+			$this->load->view('template_al/navigation');
 			if ($data['title']=='chaussure') {
 				$this->load->view('Stocks/stock_detail_chaussure');
 			}elseif ($data['title']=='sacs') {

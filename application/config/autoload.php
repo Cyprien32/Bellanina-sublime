@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'file', 'assets', 'assets_admin','array');
+$autoload['helper'] = array('url', 'file', 'assets', 'assets_admin','assets_al','array');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Stock_model' => 'Stock','Cat_stock_model' => 'Cat_stock','Tablegenerated_model'=>'Tablegenerated');
+$autoload['model'] = array('Admin_model'=>'Admin','Personne_model'=>'Personne','Caissier_model'=>'Caissier','Client_model'=>'Client','Commande_model'=>'Commande','Message_model'=>'Message','Promotion_model'=>'Promotion','Stock_model' => 'Stock','Cat_stock_model' => 'Cat_stock','Tablegenerated_model'=>'Tablegenerated','Vente_model'=>'Vente');

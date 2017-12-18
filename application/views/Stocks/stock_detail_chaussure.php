@@ -27,17 +27,17 @@
 			</div>
 		</div>
 		<?php if ($_SESSION['success']=='ok') { ?>
-			<div class="alert alert-success" style=" text-align: center;"><i class="ion ion-android-checkmark-circle"></i>
+			<div class="alert alert-success disparution" style=" text-align: center;"><i class="ion ion-android-checkmark-circle"></i>
 				<button type="button" class="close" data-dismiss="alert">x</button>	
 				<h4><?php echo $_SESSION['message_save']; ?></h4>
 			</div>
 		<?php }elseif ($_SESSION['success']=='non') { ?>
-			<div class="alert alert-Danger" style=" text-align: center;"><i class="ion ion-android-checkmark-circle"></i>	
+			<div class="alert alert-Danger disparution" style=" text-align: center;"><i class="ion ion-android-checkmark-circle"></i>	
 				<button type="button" class="close" data-dismiss="alert">x</button>	
 				<h4><?php echo $_SESSION['message']; ?></h4>
 			</div>
 		<?php }elseif($_SESSION['success']=='exist'){ ?>
-			<div class="alert alert-warning" style=" text-align: center;"><i class="ion ion-android-checkmark-circle"></i>	
+			<div class="alert alert-warning disparution" style=" text-align: center;"><i class="ion ion-android-checkmark-circle"></i>	
 				<button type="button" class="close" data-dismiss="alert">x</button>	
 				<h4><?php echo $_SESSION['message_save']; ?></h4>
 			</div>

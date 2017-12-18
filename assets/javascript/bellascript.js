@@ -1,7 +1,7 @@
 	
 
 	var CONFIG = {
-		'server' : 'http://192.168.174.1/bella_nina/',
+		'server' : 'http://localhost/bella_nina/',
 		'author' : 'Cyprien Dontsa'
 	};
 
@@ -159,51 +159,51 @@
 		var pointure_homme='';
 		pointure_homme+='<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 35</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept35" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept35" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 36</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept36" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept36" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 37</label>'+
-			             ' <input class="form-control" placeholder="Qte"  min="0" name="qtept37" type="number">'+
+			             ' <input class="form-control" placeholder="00"  min="0" name="qtept37" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 38</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept38" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept38" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 39</label>'+
-			              '<input class="form-control" placeholder="Qte" min="0"  name="qtept39" type="number">'+
+			              '<input class="form-control" placeholder="00" min="0"  name="qtept39" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 40</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept40" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept40" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 41</label>'+
-			             ' <input class="form-control" placeholder="Qte"  min="0" name="qtept41" type="number">'+
+			             ' <input class="form-control" placeholder="00"  min="0" name="qtept41" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 42</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept42" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept42" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 43</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept43" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept43" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 44</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept44" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept44" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 45</label>'+
-			             ' <input class="form-control" placeholder="Qte"  min="0" name="qtept45" type="number">'+
+			             ' <input class="form-control" placeholder="00"  min="0" name="qtept45" type="number">'+
 			            '</div> '+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 46</label>'+
-			              '<input class="form-control" placeholder="Qte"  min="0" name="qtept46" type="number">'+
+			              '<input class="form-control" placeholder="00"  min="0" name="qtept46" type="number">'+
 			           ' </div>'+
 			            
 			            '<div class="clearfix"> </div>';
@@ -218,43 +218,43 @@
 		var pointure_femme='';
 		pointure_femme+='<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 35</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept35" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept35" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			             ' <label class="control-label">Pointure 36</label>'+
-			            '  <input placeholder="Qte" class="form-control" min="0" name="qtept36" type="number">'+
+			            '  <input placeholder="00" class="form-control" min="0" name="qtept36" type="number">'+
 			           ' </div>'+
 			           ' <div class="col-md-2 form-group1">'+
 			             ' <label class="control-label">Pointure 37</label>'+
-			            '  <input placeholder="Qte" class="form-control" min="0" name="qtept37" type="number">'+
+			            '  <input placeholder="00" class="form-control" min="0" name="qtept37" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			             ' <label class="control-label">Pointure 38</label>'+
-			          '    <input placeholder="Qte" class="form-control" min="0" name="qtept38" type="number">'+
+			          '    <input placeholder="00" class="form-control" min="0" name="qtept38" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			           '   <label class="control-label">Pointure 39</label>'+
-			          '    <input placeholder="Qte" class="form-control" min="0"  name="qtept39" type="number">'+
+			          '    <input placeholder="00" class="form-control" min="0"  name="qtept39" type="number">'+
 			          '  </div>'+
 			           ' <div class="col-md-2 form-group1">'+
 			               '<label class="control-label">Pointure 40</label>'+
-			          '    <input placeholder="Qte" class="form-control" min="0" name="qtept40" type="number">'+
+			          '    <input placeholder="00" class="form-control" min="0" name="qtept40" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			            	'<label class="control-label">Pointure 41</label>'+
-			          '    <input placeholder="Qte" class="form-control" min="0" name="qtept41" type="number">'+
+			          '    <input placeholder="00" class="form-control" min="0" name="qtept41" type="number">'+
 			           ' </div>'+
 			           ' <div class="col-md-2 form-group1">'+
 			           '     <label class="control-label">Pointure 42</label>'+
-			         '     <input placeholder="Qte" class="form-control" min="0" name="qtept42" type="number">'+
+			         '     <input placeholder="00" class="form-control" min="0" name="qtept42" type="number">'+
 			          '  </div>'+
 			           ' <div class="col-md-2 form-group1">'+
 			         		'<label class="control-label">Pointure 43</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept43" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept43" type="number">'+
 			           ' </div>'+
 			            '<div class="col-md-2 form-group1">'+
 			               ' <label class="control-label">Pointure 44</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept44" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept44" type="number">'+
 			            '</div>'+
 			            
 			           ' <div class="clearfix"> </div>';
@@ -270,79 +270,79 @@
 		var pointure_enfant='';
 		pointure_enfant+='<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 18</label>'+
-			              '<input placeholder="Qte"  class="form-control" min="0" name="qtept18" type="number">'+
+			              '<input placeholder="00"  class="form-control" min="0" name="qtept18" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 19</label>'+
-			              '<input placeholder="Qte"  class="form-control" min="0" name="qtept19" type="number">'+
+			              '<input placeholder="00"  class="form-control" min="0" name="qtept19" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 20</label>'+
-			              '<input placeholder="Qte"  class="form-control" min="0" name="qtept20" type="number">'+
+			              '<input placeholder="00"  class="form-control" min="0" name="qtept20" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 21</label>'+
-			              '<input placeholder="Qte"  class="form-control" min="0" name="qtept21" type="number">'+
+			              '<input placeholder="00"  class="form-control" min="0" name="qtept21" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 22</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0"  name="qtept22" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0"  name="qtept22" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 23</label>'+
-			              '<input placeholder="Qte"  class="form-control" min="0" name="qtept23" type="number">'+
+			              '<input placeholder="00"  class="form-control" min="0" name="qtept23" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 24</label>'+
-			              '<input placeholder="Qte"  class="form-control" min="0" name="qtept24" type="number">'+
+			              '<input placeholder="00"  class="form-control" min="0" name="qtept24" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 25</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept25" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept25" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 26</label>'+
-			              '<input placeholder="Qte"class="form-control"  min="0" name="qtept26" type="number">'+
+			              '<input placeholder="00"class="form-control"  min="0" name="qtept26" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 27</label>'+
-			              '<input placeholder="Qte"class="form-control"  min="0" name="qtept27" type="number">'+
+			              '<input placeholder="00"class="form-control"  min="0" name="qtept27" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 28</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept28" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept28" type="number">'+
 			            '</div> '+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 29</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept29" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept29" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 30</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept30" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept30" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 31</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept31" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept31" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 32</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept32" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept32" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 33</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept33" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept33" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group">'+
 			              '<label class="control-label">Pointure 34</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept34" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept34" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 35</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept35" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept35" type="number">'+
 			            '</div>'+
 			            '<div class="col-md-2 form-group1">'+
 			              '<label class="control-label">Pointure 36</label>'+
-			              '<input placeholder="Qte" class="form-control" min="0" name="qtept36" type="number">'+
+			              '<input placeholder="00" class="form-control" min="0" name="qtept36" type="number">'+
 			           ' </div>'+
 			            '<div class="clearfix"> </div>'+
 		            '</div>';
@@ -359,7 +359,6 @@
 			showDivPointureHomme();
 			$('#point_enfant').remove();
 			$('#point_femme').remove();
-			
 		});
 
 		$('#femme').click(function(){
@@ -379,6 +378,7 @@
 	}
 
 $(document).ready(function(){
+	// $('.disparution').hide(5qte0);
 	$('#show_form').click(function(){
 		$('#new_cat').modal('show');
 	});

@@ -91,6 +91,64 @@ class Stock_model extends CI_Model{
  					$donnees['total']=$i;
 				return $donnees;
 			}
+
+			// ------------------------------------------------- --------- cesaire debut --------------------------------------------
+			public function findAllStockPromotion($id_cat){
+				$data =$this->db->select('id_stock,nom_article,image,dateCreation,dateModification')
+								->from($this->table)
+								->where('cat_stock_id', $id_cat)
+								->where('etat',0)
+								->get()
+								->result();
+					$i=0;
+				foreach ($data as $row){
+			       	$donnees[$i]['id_stock'] = $row->id_stock;
+			       	$donnees[$i]['nom_article'] = $row->nom_article;
+			       	$donnees[$i]['image'] = $row->image;
+			       	$donnees[$i]['dateCreation'] = $row->dateCreation;
+			       	$donnees[$i]['dateModification'] = $row->dateModification;
+			       $i++;
+				}
+ 					$donnees['total']=$i;
+				return $donnees;
+			}
+
+			public function findAllPromotion(){
+				$data =$this->db->select('id_stock,nom_article,image,dateCreation,dateModification')
+								->from($this->table)
+								->where('etat',1)
+								->get()
+								->result();
+					$i=0;
+				foreach ($data as $row){
+			       	$donnees[$i]['id_stock'] = $row->id_stock;
+			       	$donnees[$i]['nom_article'] = $row->nom_article;
+			       	$donnees[$i]['image'] = $row->image;
+			       	$donnees[$i]['dateCreation'] = $row->dateCreation;
+			       	$donnees[$i]['dateModification'] = $row->dateModification;
+			       	$donnees[$i]['info_promo'] =$this->Promotion->findInfoBy_id_stock($row->id_stock);
+			       	$donnees[$i]['nom_responsable']=$this->Personne->findInfo($this->Promotion->findIdResponsBy_id_stock($row->id_stock));
+			       
+			       $i++;
+				}
+ 					$donnees['total']=$i;
+				return $donnees;
+			}
+
+			public function MetHorPromo($id){
+					$this->db->set('etat',0);
+			    	$this->db->where('id_stock',(int)$id)
+	    			 ->update($this->table);
+			}
+
+			public function miseEnPromo($id){
+				$this->db->set('etat',1)
+						 ->where('id_stock',$id)
+					  ->update($this->table);
+			}
+			
+			//----------------------------------------------------------- cesaire fin ----------------------------------------------
+
 			
 
 			public function findNom_article($id_stock){
@@ -107,6 +165,22 @@ class Stock_model extends CI_Model{
 				}
 
 				return $donnees['nom_article'];
+			}
+
+			public function findImage($id_stock){
+				$data =$this->db->select('image')
+								->from($this->table)
+								->where('id_stock', $id_stock)
+								->limit(1)
+								->get()
+								->result();
+
+								
+				foreach ($data as $row){
+			       	$donnees['image']=$row->image;
+				}
+
+				return $donnees['image'];
 			}
 
 

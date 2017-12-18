@@ -78,74 +78,12 @@
 					
 					<h3> modifierles Tailles</h3>
 		            <div class="vali-form">
-		            	<div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 44</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT44']; ?>" class="form-control" min="0" name="qteT44" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 45</label>
-			              <input value='<?php echo $tail['donnee_taille']['qteT45']; ?>' class="form-control" min="0" name="qteT45" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 46</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT46']; ?>" class="form-control" min="0" name="qteT46" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 47</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT47']; ?>" class="form-control" min="0" name="qteT47" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 48</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT48']; ?>" class="form-control" min="0" name="qteT48" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 49</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT49']; ?>" class="form-control" min="0" name="qteT49" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 50</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT50']; ?>" class="form-control" min="0" name="qteT50" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 51</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT51']; ?>" class="form-control" min="0" name="qteT51" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 52</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT52']; ?>" class="form-control" min="0" name="qteT52" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 53</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT53']; ?>" class="form-control" min="0" name="qteT53" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 54</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT54']; ?>" class="form-control" min="0" name="qteT54" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 55</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT55']; ?>" class="form-control" min="0" name="qteT55" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 56</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT56']; ?>" class="form-control" min="0" name="qteT56" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 57</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT57']; ?>" class="form-control" min="0" name="qteT57" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 58</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT58']; ?>" class="form-control" min="0" name="qteT58" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 59</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT59']; ?>" class="form-control" min="0" name="qteT59" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 60</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT60']; ?>" class="form-control" min="0" name="qteT60" type="number">
-			            </div> 
+		            	<?php for ($i=0; $i<$tail['donnee_taille']['total'] ; $i++) { ?>
+			            	<div class="col-md-2 form-group1">
+				              <label class="control-label">Taille <?php echo $i+44; ?></label>
+				              <input class="form-control" value="<?php echo $tail['donnee_taille'][$i]['val']; ?>"  min="0" name="<?php echo $tail['donnee_taille'][$i]['nom']; ?>" type="number">
+				            </div>
+			           	<?php } ?>
 			            <div class="clearfix"> </div>
 			        </div>
 					
@@ -155,6 +93,7 @@
 					<div class="col-md-22 form-group">
 						<input type="hidden" name="id" value="<?php echo $infoModif['id']; ?>">
 						<input type="hidden" name="stock_id" value="<?php echo $infoModif['stock_id']; ?>">
+						<input type="hidden" name="type" value="<?php echo $infoModif['type']; ?>">
 						<input type="hidden" name="nom_table" value="<?php echo $nom_table; ?>">
 		              	<button type="submit" class="btn btn-warning pull-right">Modifier</button>
 		              	<button type="reset" class="btn btn-default">Annuler</button>

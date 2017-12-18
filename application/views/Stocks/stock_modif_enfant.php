@@ -78,82 +78,12 @@
 
 		            <h3>modifier pointures</h3>
 		            <div class="vali-form" id="point_enfant">
-		            	<div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 18</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept18'] ?>"  class="form-control" min="0" name="qtept18" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 19</label>
-			              <input value""<?php echo $point['donnee_pointure']['qtept19'] ?>" class="form-control" min="0" name="qtept19" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 20</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept20'] ?>"  class="form-control" min="0" name="qtept20" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 21</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept21'] ?>"  class="form-control" min="0" name="qtept21" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 22</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept22'] ?>"  class="form-control" min="0"  name="qtept22" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 23</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept23'] ?>"  class="form-control" min="0" name="qtept23" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 24</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept24'] ?>"  class="form-control" min="0" name="qtept24" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 25</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept25'] ?>"  class="form-control" min="0" name="qtept25" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 26</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept26'] ?>"  class="form-control"  min="0" name="qtept26" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 27</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept27'] ?>"  class="form-control"  min="0" name="qtept27" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 28</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept28'] ?>"  class="form-control" min="0" name="qtept28" type="number">
-			            </div> 
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 29</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept29'] ?>"  class="form-control" min="0" name="qtept29" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 30</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept30'] ?>"  class="form-control" min="0" name="qtept30" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 31</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept31'] ?>"  class="form-control" min="0" name="qtept31" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 32</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept32'] ?>"  class="form-control" min="0" name="qtept32" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 33</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept33'] ?>"  class="form-control" min="0" name="qtept33" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 34</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept34'] ?>"  class="form-control" min="0" name="qtept34" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 35</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept35'] ?>"  class="form-control" min="0" name="qtept35" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 36</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept36'] ?>"  class="form-control" min="0" name="qtept36" type="number">
-			            </div>
+		            	<?php for ($i=0; $i<$point['donnee_pointure']['total'] ; $i++) { ?>
+		            		<div class="col-md-2 form-group1">
+				              <label class="control-label">Pointure <?php echo $i+18; ?></label>
+				              <input class="form-control" value="<?php echo $point['donnee_pointure'][$i]['val']; ?>"  min="0" name="<?php echo $point['donnee_pointure'][$i]['nom']; ?>" type="number">
+				            </div>
+		            	<?php } ?>
 			            
 			            <div class="clearfix"> </div>
 		            </div>

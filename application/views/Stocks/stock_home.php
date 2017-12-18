@@ -37,7 +37,7 @@
 						<div class="row">
 							<div class="col-sm-4 border-right">
 								<div class="description-block">
-									<h5 class="description-header">3,200</h5>
+									<h5 class="description-header"><?php echo $valTotal[$i]; ?></h5>
 									<span class="description-text">Total</span>
 								</div>
 							</div>

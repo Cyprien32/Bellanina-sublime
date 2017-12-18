@@ -85,30 +85,12 @@
 
 		            <h3>Modifier les Tailles</h3>
 		            <div class="vali-form">
-		            	<div class="col-md-2 form-group1">
-			              <label class="control-label">Taille S</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteTS']; ?>" class="form-control" min="0" name="qteTS" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille M</label>
-			              <input value='<?php echo $tail['donnee_taille']['qteTM']; ?>' class="form-control" min="0" name="qteTM" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille L</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteTL']; ?>" class="form-control" min="0" name="qteTL" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille XL</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteTXL']; ?>" class="form-control" min="0" name="qteTXL" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille XXL</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteTXXL']; ?>" class="form-control" min="0" name="qteTXXL" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Taille 3XL</label>
-			              <input value="<?php echo $tail['donnee_taille']['qteT3XL']; ?>" class="form-control" min="0" name="qteT3XL" type="number">
-			            </div>
+		            	<?php for ($i=0; $i<$tail['donnee_taille']['total'] ; $i++) { ?>
+		            		<div class="col-md-2 form-group1">
+				              <label class="control-label">Taille <?php echo $tail['donnee_taille'][$i]['nom']; ?></label>
+				              <input class="form-control" value="<?php echo $tail['donnee_taille'][$i]['val']; ?>"  min="0" name="<?php echo $tail['donnee_taille'][$i]['nom']; ?>" type="number">
+				            </div>
+		            	<?php } ?>
 			            <div class="clearfix"> </div>
 			        </div>
 		             

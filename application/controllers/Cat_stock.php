@@ -10,7 +10,7 @@
 			$data['AllCatStock']=$this->Cat_stock->findAllCat_stock();
 
 			$this->load->view('Welcome/index',$data);
-			$this->load->view('Welcome/asside');
+			$this->load->view('template_al/navigation');
 			$this->load->view('Stocks/stock_cat');
 			$this->load->view('Welcome/footer');
 
@@ -73,7 +73,7 @@
 				$data['AllCatStock']=$this->Cat_stock->findAllCat_stock();
 
 				$this->load->view('Welcome/index',$data);
-				$this->load->view('Welcome/asside');
+				$this->load->view('template_al/navigation');
 				$this->load->view('Stocks/stock_cat');
 				$this->load->view('Welcome/footer');
 			}

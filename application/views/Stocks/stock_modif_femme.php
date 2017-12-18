@@ -77,47 +77,13 @@
 
 		            <h3>modifier pointures</h3>
 		           
-		            <div class="vali-form" id="point_femme">
-		            	<div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 35</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept35'] ?>" class="form-control" min="0" name="qtept35" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 36</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept36'] ?>" class="form-control" min="0" name="qtept36" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 37</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept37'] ?>" class="form-control" min="0" name="qtept37" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 38</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept38'] ?>" class="form-control" min="0" name="qtept38" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 39</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept39'] ?>" class="form-control" min="0" name="qtept39" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 40</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept40'] ?>" class="form-control" min="0" name="qtept40" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 41</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept41'] ?>" class="form-control" min="0" name="qtept41" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 42</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept42'] ?>" class="form-control" min="0" name="qtept42" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 43</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept43'] ?>" class="form-control" min="0" name="qtept43" type="number">
-			            </div>
-			            <div class="col-md-2 form-group1">
-			              <label class="control-label">Pointure 44</label>
-			              <input value="<?php echo $point['donnee_pointure']['qtept44'] ?>" class="form-control" min="0" name="qtept44" type="number">
-			            </div>
+		            <div class="vali-form">
+		            	<?php for ($i=0; $i<$point['donnee_pointure']['total'] ; $i++) { ?>
+		            		<div class="col-md-2 form-group1">
+				              <label class="control-label">Pointure <?php echo $i+35; ?></label>
+				              <input class="form-control" value="<?php echo $point['donnee_pointure'][$i]['val']; ?>"  min="0" name="<?php echo $point['donnee_pointure'][$i]['nom']; ?>" type="number">
+				            </div>
+		            	<?php } ?>
 			            
 			            <div class="clearfix"> </div>
 		            </div>
@@ -126,6 +92,8 @@
 		             <div class="clearfix"> </div>
 					
 					<div class="col-md-22 form-group">
+						<input type="hidden" name="stock_id" value="<?php echo $infoModif['stock_id']; ?>">
+						<input type="hidden" name="type" value="<?php echo $infoModif['type']; ?>">
 						<input type="hidden" name="id" value="<?php echo $infoModif['id']; ?>">
 						<input type="hidden" name="nom_table" value="<?php echo $nom_table; ?>">
 		              	<button type="submit" class="btn btn-warning pull-right">Modifier</button>

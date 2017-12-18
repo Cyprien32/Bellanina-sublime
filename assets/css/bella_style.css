@@ -81,7 +81,21 @@ form input[type='submit']{
     text-align: center;
 }
 
+.pannier{
+    text-align: center !important;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
 
+.pannier:hover{
+    text-decoration: none;
+    color: yellow;
+}
+
+.icon{
+    text-align: center;
+}
 
 
 

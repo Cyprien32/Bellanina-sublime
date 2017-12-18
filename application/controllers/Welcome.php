@@ -7,7 +7,7 @@ class Welcome extends CI_Controller {
 	{
 		$_SESSION['success']='';
 		$this->load->view('Welcome/index');
-		$this->load->view('Welcome/asside');
+		$this->load->view('template_al/navigation');
 		$this->load->view('Welcome/home');
 		$this->load->view('Welcome/footer');
 	}

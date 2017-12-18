@@ -237,7 +237,11 @@
 
 <?php 
   echo js('bellascript');
-  echo js('angular.min');
+  echo js('text');
+  echo js('ajax_server');
+  echo js('dataTables.bootstrap.min');
+  echo js('jquery.dataTables.min');
+  // echo js('angular');
  ?>
 
 

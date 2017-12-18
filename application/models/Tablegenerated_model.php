@@ -133,6 +133,27 @@ class Tablegenerated_model extends CI_Model{
 
 	}
 
+	public function updatePointureTaille($data, $nom_table,$id){
+
+	    if ($data['quantite'] != '') {
+	    	$this->db->set('quantite',$data['quantite']);
+	    }
+	    
+	    if($nom_table=='chaussure'){
+	    	$this->db->set('pointure',$data['pointure']);
+	    }
+	    if ($nom_table=='chemise' || $nom_table=='costume') {
+	    	$this->db->set('taille',$data['taille']);
+	    }
+	   
+	   	if ($data['dateModification'] != '') {
+	    	$this->db->set('dateModification',$data['dateModification']);
+	    }
+
+    	$this->db->where('id',(int)$id)->update($nom_table);
+
+	}
+
 
 
 	public function deleteArticle($nom_table,$id){
@@ -160,9 +181,12 @@ class Tablegenerated_model extends CI_Model{
 	}
 
 
+	// fonction aui retourne tous les elemets d'une table
+
 	public function findAllDonneeTable($nom_table){
 		$data =$this->db->select('id,marque, stock_id, prix_max, prix_min, type, quantite, couleur, code, modele, pointure, taille, dateCreation, dateModification')
 						->from($nom_table)
+						->order_by('id','DESC')
 						->get()
 						->result();
 			$i=0;
@@ -183,12 +207,63 @@ class Tablegenerated_model extends CI_Model{
 	       	$donnees[$i]['dateModification'] = $row->dateModification;
 	       $i++;
 		}
-				$donnees['total']=$i;
+			$donnees['total']=$i;
 		return $donnees;
 			
 	}
+
+	// fonction qui retourne tous les elemets d'une table en foction de id_stock
+
+	public function findAllDonneeTableBy_id($nom_table,$id_stock){
+		$data =$this->db->select('id,marque, stock_id, prix_max, prix_min, type, quantite, couleur, code, modele, pointure, taille, dateCreation, dateModification')
+						->from($nom_table)
+						->where('stock_id',$id_stock)
+						->get()
+						->result();
+			$i=0;
+		foreach ($data as $row){
+	       	$donnees[$i]['id'] = $row->id;
+	       	$donnees[$i]['marque'] = $row->marque;
+	       	$donnees[$i]['stock_id'] = $row->stock_id;
+	       	$donnees[$i]['prix_max'] = $row->prix_max;
+	       	$donnees[$i]['prix_min'] = $row->prix_min;
+	       	$donnees[$i]['type'] = $row->type;
+	       	$donnees[$i]['quantite'] = $row->quantite;
+	       	$donnees[$i]['couleur'] = $row->couleur;
+	       	$donnees[$i]['code'] = $row->code;
+	       	$donnees[$i]['modele'] = $row->modele;
+	       	$donnees[$i]['pointure'] = $row->pointure;
+	       	$donnees[$i]['taille'] = $row->taille;
+	       	$donnees[$i]['dateCreation'] = $row->dateCreation;
+	       	$donnees[$i]['dateModification'] = $row->dateModification;
+	       $i++;
+		}
+			$donnees['total']=$i;
+		return $donnees;
+			
+	}
+
+
+	public function findAllMarqueTable($nom_table){
+		$data =$this->db->select('id,marque')
+						->from($nom_table)
+						->get()
+						->result();
+			$i=0;
+		foreach ($data as $row){
+	       	$donnees[$i]['id'] = $row->id;
+	       	$donnees[$i]['marque'] = $row->marque;
+	       	$i++;
+		}
+			$donnees['total']=$i;
+		return $donnees;
+			
+	}
+
+
+
 	public function findInfoModif($nom_table, $id){
-		$data =$this->db->select('id,marque, stock_id, code, prix_max, prix_min, type,stock_id, quantite, couleur, modele')
+		$data =$this->db->select('id,marque, code, prix_max, prix_min, type,stock_id, quantite, couleur, modele,dateCreation')
 						->from($nom_table)
 						->where('id', $id)
 						->limit(1)
@@ -206,7 +281,35 @@ class Tablegenerated_model extends CI_Model{
 	       	$donnees['quantite']=$row->quantite;
 	       	$donnees['couleur']=$row->couleur;
 	       	$donnees['modele']=$row->modele;
+	       	$donnees['dateCreation']=$row->dateCreation;
 		}
+		return $donnees;
+	}
+
+	public function findInfoModif2($nom_table, $id){
+		$data =$this->db->select('id,marque, code, prix_max, prix_min, type,stock_id, quantite, taille,pointure, couleur, modele')
+						->from($nom_table)
+						->where('id', $id)
+						->limit(1)
+						->get()
+						->result();
+			$i=0;
+		foreach ($data as $row){
+	       	$donnees[$i]['id']=$row->id;
+	       	$donnees[$i]['marque']=$row->marque;
+	       	$donnees[$i]['code']=$row->code;
+	       	$donnees[$i]['stock_id']=$row->stock_id;
+	       	$donnees[$i]['prix_min']=$row->prix_min;
+	       	$donnees[$i]['prix_max']=$row->prix_max;
+	       	$donnees[$i]['type']=$row->type;
+	       	$donnees[$i]['quantite']=$row->quantite;
+	       	$donnees[$i]['taille']=$row->taille;
+	       	$donnees[$i]['pointure']=$row->pointure;
+	       	$donnees[$i]['couleur']=$row->couleur;
+	       	$donnees[$i]['modele']=$row->modele;
+	       	$i++;
+		}
+		$donnees['total']=$i;
 		return $donnees;
 	}
 
@@ -283,6 +386,10 @@ class Tablegenerated_model extends CI_Model{
 			 ->update($nom_table);
 	}
 
+
+	public function  countAllArticle($nom_table){
+		return (int)$this->db->count_all_results($nom_table);
+	}
 
 			// setteurs
 
